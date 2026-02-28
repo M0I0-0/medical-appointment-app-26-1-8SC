@@ -15,6 +15,7 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         
@@ -30,14 +31,25 @@
          @include('layouts.includes.admin.sidebar')
 
       <div class="p-4 sm:ml-64 mt-14">
-         <div class="mt-14">
+         <div class="mt-14 flex justify-between items-center w-full">
             @include('layouts.includes.admin.breadcrumb')
+            @isset($action)
+                <div>
+                    {{ $action }}
+                </div>
+            @endisset
          </div>
          {{ $slot }}
       </div>
 
 
         @stack('modals')
+
+        @if(@session('swal'))
+            <script>
+                Swal.fire(@json(session('swal')));
+            </script>
+        @endif
 
         @livewireScripts
       
