@@ -11,10 +11,16 @@
       'header' => 'Gestión'
       ],
       [
-      'name' => 'Tienda en línea',
+      'name' => 'Gestión de Roles',
       'icono' => 'fa-solid fa-shield-halved',
       'href' => route('admin.roles.index'),
       'active' => request()->routeIs('admin.roles.*'),
+      ],
+            [
+      'name' => 'Usuarios',
+      'icono' => 'fa-solid fa-users',
+      'href' => route('admin.users.index'),
+      'active' => request()->routeIs('admin.users.*'),
       ],
    ];
 @endphp
