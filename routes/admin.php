@@ -17,4 +17,4 @@ Route::resource('patients', PatientController::class);
 Route::resource('doctors', App\Http\Controllers\Admin\DoctorController::class);
 Route::get('doctors/{doctor}/schedules', [App\Http\Controllers\Admin\DoctorController::class, 'schedules'])->name('doctors.schedules');
 Route::resource('appointments', App\Http\Controllers\Admin\AppointmentController::class);
-Route::get('appointments/{appointment}/consultation', [App\Http\Controllers\Admin\AppointmentController::class, 'consultation'])->name('admin.appointments.consultation');
+Route::get('appointments/{appointment}/consultation', [App\Http\Controllers\Admin\AppointmentController::class, 'consultation'])->name('appointments.consultation');

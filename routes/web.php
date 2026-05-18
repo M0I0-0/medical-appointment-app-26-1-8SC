@@ -15,3 +15,12 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/dev-login', function () {
+    $user = \App\Models\User::first();
+    if ($user) {
+        \Illuminate\Support\Facades\Auth::login($user);
+        return redirect('/admin/appointments');
+    }
+    return 'No users exist!';
+});
